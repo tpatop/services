@@ -28,7 +28,7 @@ cp $HOME/.dora/data/priv_validator_state.json ~/priv_validator_state.json.backup
 
 ---
 
-2. Stop the node
+### 2. Stop the node
 
 ```bash
 systemctl stop dorad
@@ -36,7 +36,7 @@ systemctl stop dorad
 
 ---
 
-3. Remove old data
+### 3. Remove old data
 
 ```bash
 rm -rf $HOME/.dora/data $HOME/.dora/wasm
@@ -44,7 +44,7 @@ rm -rf $HOME/.dora/data $HOME/.dora/wasm
 
 ---
 
-4. Download the latest snapshot and extract
+### 4. Download the latest snapshot and extract
 
 ```bash
 H=$(curl -s http://snapshots.mooncore.pro/vota-ash/index.json | jq -r .height)
@@ -55,7 +55,7 @@ curl -L "http://snapshots.mooncore.pro/vota-ash/${H}.tar.lz4" \
 
 ---
 
-5. Restore the file from backup
+### 5. Restore the file from backup
 
 ```bash
 # restore validator state
@@ -64,21 +64,21 @@ cp ~/priv_validator_state.json.backup $HOME/.dora/data/priv_validator_state.json
 
 ---
 
-6. Start the node
+### 6. Start the node
 ```bash
 systemctl start dorad
 ```
 
 ---
 
-7. Check logs
+### 7. Check logs
 ```bash
 journalctl -u dorad -f
 ```
 
 ---
 
-📂 Contents of the snapshot
+## 📂 Contents of the snapshot
 
 data/ — blockchain database
 
@@ -93,7 +93,7 @@ data/priv_validator_state.json — an empty placeholder file (for full nodes).
 
 ---
 
-🔗 Links
+## 🔗 Links
 
 Metadata: http://snapshots.mooncore.pro/vota-ash/index.json
 
